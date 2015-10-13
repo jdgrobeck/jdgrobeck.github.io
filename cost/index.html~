@@ -1,0 +1,61 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>{{ headline }}</h1>
+    	<img src="http://www.natcom.org/uploadedImages/More_Scholarly_Resources/Doctoral_Program_Resource_Guide/Nebraska%20Logo.png"/>
+
+
+	
+	 <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Big 10 Universities</th>
+		  <th>In State Students On Campus 2012-2013</th>
+                  <th>Out Of State Students on Campus 2012-2013</th>
+                  <th>Graduation Rate</th>
+                </tr>
+              </thead>
+              <tbody>
+		{% for row in data %}<tr>
+			<td>{{ row.school }}</td>
+			<td>{{ row.instate }}</td>
+			<td>{{ row.outstate }}</td>
+			<td>{{ row.gradrate }}</td>
+		      </tr>{% endfor %}
+		</tbody>
+		</table>
+	       </div>
+
+ <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Year</th>
+		  <th>Average Fees Resident</th>
+                  <th>Average Fees NonResident</th>
+                  <th>Inflation Adjustment Resident</th>
+		  <th>Inflation Adjustment NonResident</th>
+                </tr>
+              </thead>
+              <tbody>
+		{% for row in cost %}<tr>
+			<td>{{ row.year }}</td>
+			<td>{{ row.feesres }}</td>
+			<td>{{ row.feesnonres }}</td>
+			<td>{{ row.inflres }}</td>
+			<td>{{ row.inflnonres }}</td>
+		      </tr>{% endfor %}
+		</tbody>
+		</table>
+	       </div>
+
+{{ image|safe }}
+ 
+		
+  </div>
+</div>
+{% endblock content %}
+

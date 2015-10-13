@@ -1,0 +1,62 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<div class="container">
+  <div class="jumbotron">
+    <h1>{{ headline }}</h1>
+	{{ image|safe }}
+    	
+<p>Downloading music illegally on the Internet has become an increasingly bigger issue because of the digital age. Music is now more available than ever because of multiple sources and file sharing sites that post albums freely available for download. This page shows the most illegally downloaded music so far in 2015.</p>
+
+<div class="table-responsive">
+            <table class="table table-striped">
+	    <caption>Average Daily Downloads of Top 10 Ranked Billboard Albums </caption>
+              <thead>
+                <tr>
+                  <th>Album</th>
+		  <th>Artist</th>
+                  <th>Number of Daily Downloads</th>
+                </tr>
+              </thead>
+              <tbody>
+		{% for row in data %}<tr>
+			<td>{{ row.album }}</td>
+			<td>{{ row.artist }}</td>
+			<td>{{ row.dailydownloads }}</td>
+		      </tr>{% endfor %}
+		</tbody>
+		</table>
+	       </div>
+<p>The table above shows the Top Billboard Artists who have the most illegally download albums so far of 2015. Drake and Future clearly have the most illegally downloaded albums of any artist.</p>
+
+<img aria-label="Photo - Portrait - Oct 11, 2015" jsname="uLHQEd" class="SzDcob" src="https://lh3.googleusercontent.com/r1QO-q6QugypGgWQsQiZnclOC4zwkKtg8EY5WQmTldg2Ul4EiJUg60JismiKM6fXSJwlKKlNwyyrTqIO14lfrtydgzZcXrZGJBVBenw9BAG2Bw0DOczKoBcvQGupBWu3vzD57XbMbT1DX4CUq4vGky0gBNKHUlR-BgfIoDJkrpnEkx1pRWaWK8ny7Zv9slbSv9VOyS0m0rJXuFU0vVWG-pvTKrT0Fg5WJM2eCfEQJHSZe7oC4oN0kXbWcvr2lSMXnJuc1kxFqprtnNPKu1SCoZsLVfMXL8hLInSUme0P2_1put4L7MlG4dTl8zq11eUsol6GgKfZNq4K0ykK7XVSjVCyMfmA8214h4CiVmBp2JGHi8gfzT9lzTIUjRuKqkyASsvEf6LPa45-nGpnsaapMAY4aO2bafDuPALQ7e1mQ56rXxamBrF5KRZtQ6XsaqgD3VhoDD_UcFS9C68aHntOVYGiXj_vFe-VenMeWJs5BuHhW8MdDdu_mWfBbY1n3jttxBBSzz_l8GIR-Df_bl3B29TLuzXyAvycZLV-z2-ZwG0=w235-h255-no" height="275" width="400">
+
+<p>This pie graph shows the most illegaly downloaded albums by genre. Rap has the most illegal downloads with about 460,000 followed R&B with roughly 191,000.</p>
+
+<div class="table-responsive">
+            <table class="table table-striped">
+	    <caption>Most Downloaded Album of Each Chart's Top 10</caption>
+              <thead>
+                <tr>
+                  <th>Genre</th>
+		  <th>Artist</th>
+                  <th>Album</th>
+                </tr>
+              </thead>
+              <tbody>
+		{% for row in album %}<tr>
+			<td>{{ row.genre }}</td>
+			<td>{{ row.artist }}</td>
+			<td>{{ row.album }}</td>
+		      </tr>{% endfor %}
+		</tbody>
+		</table>
+	       </div>	
+
+<p>This table shows the most downloaded album for each genre so far this year. </p>
+ 
+		
+  </div>
+</div>
+{% endblock content %}
+
